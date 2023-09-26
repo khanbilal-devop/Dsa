@@ -25,7 +25,9 @@ public class PeakElement {
         int end = arr.length - 1;
         while (start <= end){
             int middleIndex = start + ((end- start)/2);
+
             if(arr[middleIndex] > arr[middleIndex-1] && arr[middleIndex] > arr[middleIndex+1]){
+                // Peak element will be greater than it's both adjacent elements
                return middleIndex;
             }else if(arr[middleIndex] < arr[middleIndex +1]){
                 start = middleIndex + 1;
