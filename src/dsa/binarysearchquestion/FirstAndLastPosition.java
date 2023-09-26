@@ -2,7 +2,7 @@ package dsa.binarysearchquestion;
 
 import java.util.Arrays;
 
-//Need to find the first and the last index psotion  of an element in an array
+//Need to find the first and the last index position  of an element in an array
 public class FirstAndLastPosition {
 
     public static void main(String[] args) {
