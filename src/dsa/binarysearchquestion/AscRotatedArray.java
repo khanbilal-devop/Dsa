@@ -15,10 +15,11 @@ public class AscRotatedArray {
 //        int targetEl = 3; //Output : 8
 
 //        int[] array = {4,5,6,7,0,1,2};
-//        int targetEl = 5; //Output : -1
+//        int targetEl = 5; //Output : 1
 
-//        int[] array = {2,4,3};
-//        int targetEl = 0; //Output : -1
+
+//        int[] array = {2,4,1};
+//        int targetEl = 3; //Output : -1
 
 //        int[] array = {1};
 //        int targetEl = 0; //Output : -1
@@ -36,6 +37,7 @@ public class AscRotatedArray {
 
 
         int index = serachForEl(array, targetEl);
+        System.out.println("==================================================");
         System.out.println("The index of the element is "+ index);
     }
 
@@ -45,11 +47,11 @@ public class AscRotatedArray {
 
         if(pivotIndex == -1){
             // If there is no pivot index present that means the array is not rotated
-
+            System.out.println("==================================================");
             System.out.println("No pivot index found applying binary search on entire array");
             return binarySearch(array,0,array.length-1,targetEl);
         }
-
+        System.out.println("==================================================");
         System.out.println("Pivot Index found : "+ pivotIndex);
         System.out.println("Hence it is a rotated sorted array so applying binary search on both arrays");
 
@@ -61,14 +63,18 @@ public class AscRotatedArray {
         }
 
         // checking wheter the target element is smallest than the starting element of both ascending sorted array
-        if(targetEl < array[0] && targetEl < array[pivotIndex+1]){
+        if(targetEl < array[0] && targetEl < array[pivotIndex+1] || targetEl > array[pivotIndex]){
+            System.out.println("==================================================");
+            System.out.println("The target element is smaller then the starting element of both array or it maybe bigger than the largest element in the array ");
             return  -1;
         }else if(targetEl < array[0]){
             //Searching in the second array
+            System.out.println("==================================================");
             System.out.println("Searched in second array");
             return binarySearch(array,pivotIndex+1,array.length -1,targetEl);
         }else{
             //Searching in the first array
+            System.out.println("==================================================");
             System.out.println("Searched in first array");
             return binarySearch(array,0,pivotIndex -1,targetEl);
         }
@@ -84,8 +90,7 @@ public class AscRotatedArray {
         int pivotIndex = -1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-
-            if (arr[mid] >= arr[start] && arr[mid] >= arr[end]) {
+            if ((arr[mid] > arr[start] && arr[mid] > arr[end]) || (pivotIndex != -1 && arr[mid] >= arr[pivotIndex]) ) {
                 pivotIndex = mid;
                 start = mid+1;
             }else if(arr[mid] <= arr[start] && arr[mid] <= arr[end]) {
