@@ -33,7 +33,7 @@ public class SearchInsertPosition {
         int end = array.length -1;
         // If element is smaller or equal to  start element than return 0
         if(targetEl <= array[start]) return start;
-            // If element is biggerbor equal than end element than return end
+            // If element is bigger or equal than end element than return end
         else if(targetEl >= array[end]) return end;
 
         while (start <= end){
